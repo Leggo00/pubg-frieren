@@ -68,4 +68,10 @@ public class MapImageController {
         mapImageService.deleteImage(id);
         return ResponseEntity.noContent().build();
     }
+
+    // 사용 중인 맵의 최신 이미지 조회
+    @GetMapping("/active")
+    public ResponseEntity<List<MapImageDto.Response>> getActiveLatestImages() {
+        return ResponseEntity.ok(mapImageService.getActiveLatestImages());
+    }
 }

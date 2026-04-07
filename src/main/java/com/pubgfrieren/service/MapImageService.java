@@ -129,4 +129,14 @@ public class MapImageService {
                 .updatedAt(image.getUpdatedAt())
                 .build();
     }
+
+
+    // 사용 중인 맵의 최신 이미지만 조회
+    public List<MapImageDto.Response> getActiveLatestImages() {
+        return mapImageRepository.findByCategoryInUseAndIsLatestOrderByCategorySortOrderAsc("Y", "Y")
+                .stream()
+                .map(this::toResponse)
+                .collect(Collectors.toList());
+    }
+
 }

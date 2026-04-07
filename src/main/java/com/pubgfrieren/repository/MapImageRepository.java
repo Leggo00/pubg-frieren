@@ -14,4 +14,7 @@ public interface MapImageRepository extends JpaRepository<MapImage, Long> {
     List<MapImage> findByCategoryIdOrderByCreatedAtDesc(Long categoryId);
 
     List<MapImage> findByIsLatestOrderByCreatedAtDesc(String isLatest);
+
+    List<MapImage> findByCategoryInUseAndIsLatestOrderByCategorySortOrderAsc(String inUse, String isLatest);
+
 }
